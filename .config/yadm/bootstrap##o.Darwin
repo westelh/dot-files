@@ -15,3 +15,5 @@ install_brew() {
     brew bundle --global
   fi
 }
+
+install_brew
