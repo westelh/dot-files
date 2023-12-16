@@ -30,7 +30,7 @@ if [ "$system_type" = "Linux" ]; then
   destribution=$(cat /etc/*-release | grep -e '^NAME=".*"$' | cut -c 6 | xargs)
 
   # Debian based
-  if [ $distribution = 'Ubuntu' ] || [ $distribution = 'Debian' ]; then
+  if [ "$distribution" = 'Ubuntu' ] || [ "$distribution" = 'Debian' ]; then
     install_apt 
   fi
 fi
