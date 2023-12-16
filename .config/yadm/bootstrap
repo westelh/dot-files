@@ -4,6 +4,15 @@ system_type=$(uname -s)
 system_arch=$(uname -m)
 apt_list_file=$HOME/.config/yadm/apt.list
 
+# Installation step for unix systems
+# This step will run on both linux and macos
+install_unix () {
+  # Install pyenv
+  # Pyenv convenience script is for unix
+  curl https://pyenv.run | bash
+}
+
+# Installation step for macos(mainly)
 install_brew () {
   if ! command -v brew >/dev/null 2>&1; then
     echo "Installing homebrew"
@@ -16,13 +25,16 @@ install_brew () {
   fi
 }
 
+# Installation step for debian based linux
 install_apt () {
   echo "Installing apt packages"
   sudo apt update
   cat $apt_list_file | xargs sudo apt install -y
 }
 
+# Actual installation by calling the functions
 if [ "$system_type" = "Darwin" ]; then
+  install_unix
   install_brew
 fi
 
@@ -31,6 +43,7 @@ if [ "$system_type" = "Linux" ]; then
 
   # Debian based
   if [ "$distribution" = 'Ubuntu' ] || [ "$distribution" = 'Debian' ]; then
+    install_unix
     install_apt 
   else
     echo "Unsupported linux distribution($distribution)"
