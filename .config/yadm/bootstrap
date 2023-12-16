@@ -2,6 +2,7 @@
 
 system_type=$(uname -s)
 system_arch=$(uname -m)
+apt_list_file=$HOME/.config/yadm/apt.list
 
 install_brew () {
   if ! command -v brew >/dev/null 2>&1; then
@@ -15,11 +16,22 @@ install_brew () {
   fi
 }
 
+install_apt () {
+  echo "Installing apt packages"
+  sudo apt update
+  cat $apt_list_file | xargs sudo apt install -y
+}
+
 if [ "$system_type" = "Darwin" ]; then
   install_brew
 fi
-# Linux on Arm64 is not supported by homebrew
-if [ "$system_type" = "Linux" ] && [ "$system_arch" != "aarch64" ]; then
-  install_brew
+
+if [ "$system_type" = "Linux" ]; then
+  destribution=$(cat /etc/*-release | grep -e '^NAME=".*"$' | cut -c 6 | xargs)
+
+  # Debian based
+  if [ $distribution = 'Ubuntu' ] || [ $distribution = 'Debian' ]; then
+    install_apt 
+  fi
 fi
 
