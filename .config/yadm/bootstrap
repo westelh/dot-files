@@ -32,6 +32,9 @@ if [ "$system_type" = "Linux" ]; then
   # Debian based
   if [ "$distribution" = 'Ubuntu' ] || [ "$distribution" = 'Debian' ]; then
     install_apt 
+  else
+    echo "Unsupported linux distribution"
+    exit 1
   fi
 fi
 
