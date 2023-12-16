@@ -3,7 +3,7 @@
 system_type=$(uname -s)
 system_arch=$(uname -m)
 
-function install_brew() {
+function install_brew () {
   if ! command -v brew >/dev/null 2>&1; then
     echo "Installing homebrew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
