@@ -15,10 +15,6 @@ if status is-interactive
     abbr --add tree eza --tree
 end
 
-#fisher add jethrokuan/fzf
-#fisher add IlanCosman/tide
-tide configure --auto --style=Classic --prompt_colors='True color' --classic_prompt_color=Dark --show_time=No --classic_prompt_separators=Vertical --powerline_prompt_heads=Sharp --powerline_prompt_tails=Flat --powerline_prompt_style='One line' --prompt_spacing=Sparse --icons='Few icons' --transient=No
-
 # Disable less history file
 set -gx LESSHISTFILE '-'
 
