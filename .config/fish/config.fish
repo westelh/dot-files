@@ -30,8 +30,12 @@ end
 
 # Pyenv
 set -gx PYENV_ROOT $XDG_DATA_HOME/pyenv
-pyenv init - | source
+if command -v pyenv >/dev/null 2>&1
+  pyenv init - | source
+end
 
 # DirEnv
-direnv hook fish | source
+if command -v direnv >/dev/null 2>&1
+  direnv hook fish | source
+end
 
