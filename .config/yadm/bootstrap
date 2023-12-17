@@ -17,8 +17,10 @@ install_unix () {
   echo $BOLD_GREEN "Installation for unix systems" $RESET
   # Install pyenv
   # Pyenv convenience script is for unix
+  export PYENV_ROOT="$HOME/.local/share/pyenv"
   echo $BOLD_GREEN "Installing pyenv" $RESET
   curl https://pyenv.run | bash
+  fish_add_path $HOME/.local/share/pyenv/bin
 }
 
 # Installation step for macos(mainly)
