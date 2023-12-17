@@ -45,7 +45,7 @@ install_apt () {
 configure_fish () {
   echo $BOLD_GREEN "Configuring fish" $RESET
   echo $BOLD_GREEN "Installling fisher" $RESET
-  fish bootstrap.fish
+  fish $HOME/.config/yadm/bootstrap.fish
 }
 
 # Actual installation by calling the functions
