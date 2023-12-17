@@ -42,10 +42,19 @@ install_apt () {
   cat $apt_list_file | xargs sudo apt install -y
 }
 
+configure_fish () {
+  echo $BOLD_GREEN "Configuring fish" $RESET
+  echo $BOLD_GREEN "Installling fisher" $RESET
+  fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher'
+  fish -c 'fisher install jethrokuan/fzf'
+  fish -c 'fisher install IlanCosman/tide@v6'
+}
+
 # Actual installation by calling the functions
 if [ "$system_type" = "Darwin" ]; then
   install_unix
   install_brew
+  configure_fish
 fi
 
 if [ "$system_type" = "Linux" ]; then
@@ -55,6 +64,7 @@ if [ "$system_type" = "Linux" ]; then
   if [ "$distribution" = 'Ubuntu' ] || [ "$distribution" = 'Debian' ]; then
     install_unix
     install_apt 
+    configure_fish
   else
     echo "Unsupported linux distribution($distribution)"
     exit 1
