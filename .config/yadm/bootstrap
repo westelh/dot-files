@@ -67,6 +67,7 @@ if [ "$system_type" = "Darwin" ]; then
   install_unix
   install_brew
   configure_fish
+  configure_neovim
 fi
 
 if [ "$system_type" = "Linux" ]; then
@@ -77,11 +78,13 @@ if [ "$system_type" = "Linux" ]; then
     add_apt_repo_ubuntu
     install_apt
     configure_fish
+    configure_neovim
   elif [ "$distribution" = 'Debian' ]; then
     install_unix
     add_apt_repo_debian
     install_apt 
     configure_fish
+    configure_neovim
   else
     echo "Unsupported linux distribution($distribution)"
     exit 1
