@@ -44,6 +44,10 @@ install_apt () {
   cat $apt_list_file | xargs sudo apt install -y
 }
 
+add_apt_repo_ubuntu () {
+  sudo apt-add-repository ppa:fish-shell/release-3
+}
+
 configure_fish () {
   echo $BOLD_GREEN "Configuring fish" $RESET
   echo $BOLD_GREEN "Installling fisher" $RESET
@@ -60,9 +64,14 @@ fi
 if [ "$system_type" = "Linux" ]; then
   distribution=$(cat /etc/*-release | grep -e '^NAME=".*"$' | cut -c 6- | xargs)
 
-  # Debian based
-  if [ "$distribution" = 'Ubuntu' ] || [ "$distribution" = 'Debian' ]; then
+  if [ "$distribution" = 'Ubuntu' ]; then
     install_unix
+    add_apt_repo_ubuntu
+    install_apt
+    configure_fish
+  elif [ "$distribution" = 'Debian' ]; then
+    install_unix
+    add_apt_repo_debian
     install_apt 
     configure_fish
   else
