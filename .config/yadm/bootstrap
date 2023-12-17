@@ -45,6 +45,7 @@ install_apt () {
 }
 
 add_apt_repo_ubuntu () {
+  echo "$BOLD_GREEN" "Adding apt repository for ubuntu" "$RESET"
   sudo apt-add-repository ppa:fish-shell/release-3
 }
 
@@ -52,6 +53,13 @@ configure_fish () {
   echo $BOLD_GREEN "Configuring fish" $RESET
   echo $BOLD_GREEN "Installling fisher" $RESET
   fish $HOME/.config/yadm/bootstrap.fish
+}
+
+configure_neovim () {
+  if command -v nvim >/dev/null 2>&1; then
+    echo "$BOLD_GREEN" "Bootstraping Vim" "$RESET"
+    nvim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
+  fi
 }
 
 # Actual installation by calling the functions
