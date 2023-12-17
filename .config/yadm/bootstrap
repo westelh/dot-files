@@ -1,5 +1,12 @@
 #!/bin/sh
 
+ESC=$(printf '\033')
+BOLD="${ESC}[1m"
+RED="${ESC}[31m"
+GREEN="${ESC}[32m"
+BOLD_GREEN="${ESC}[1;32m"
+RESET="${ESC}[0m"
+
 system_type=$(uname -s)
 system_arch=$(uname -m)
 apt_list_file=$HOME/.config/yadm/apt.list
@@ -7,13 +14,16 @@ apt_list_file=$HOME/.config/yadm/apt.list
 # Installation step for unix systems
 # This step will run on both linux and macos
 install_unix () {
+  echo $BOLD_GREEN "Installation for unix systems" $RESET
   # Install pyenv
   # Pyenv convenience script is for unix
+  echo $BOLD_GREEN "Installing pyenv" $RESET
   curl https://pyenv.run | bash
 }
 
 # Installation step for macos(mainly)
 install_brew () {
+  echo $BOLD_GREEN "Installation by homebrew" $RESET
   if ! command -v brew >/dev/null 2>&1; then
     echo "Installing homebrew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -27,7 +37,7 @@ install_brew () {
 
 # Installation step for debian based linux
 install_apt () {
-  echo "Installing apt packages"
+  echo $BOLD_GREEN "Installation by apt" $RESET
   sudo apt update
   cat $apt_list_file | xargs sudo apt install -y
 }
