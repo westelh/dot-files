@@ -4,6 +4,12 @@ set shiftwidth=2
 set autoindent
 set number
 
+" download vim-plug if missing
+if empty(glob("~/.vim/autoload/plug.vim"))
+  silent! execute '!curl --create-dirs -fsSLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * silent! PlugInstall
+endif
+
 " Plugins will be downloaded under the specified directory.
 call plug#begin(stdpath('data') . '/plugged')
 " Declare the list of plugins.
