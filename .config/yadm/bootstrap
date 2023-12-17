@@ -56,6 +56,9 @@ configure_fish () {
 }
 
 configure_neovim () {
+  echo "$BOLD_GREEN" "Installing vim-plug" "$RESET"
+  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   if command -v nvim >/dev/null 2>&1; then
     echo "$BOLD_GREEN" "Bootstraping Vim" "$RESET"
     nvim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
