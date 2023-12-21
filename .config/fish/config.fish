@@ -13,13 +13,14 @@ if status is-interactive
     abbr --add tf terraform
     abbr --add tm tmux
     abbr --add tree eza --tree
+    abbr --add gs git status -s
 end
 
 # Disable less history file
 set -gx LESSHISTFILE '-'
 
 # Homebrew
-if command -v brew >/dev/null 2>&1
+if test -f /opt/homebrew/bin/brew
   eval (/opt/homebrew/bin/brew shellenv)
 end
 
