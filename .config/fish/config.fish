@@ -40,3 +40,5 @@ if command -v direnv >/dev/null 2>&1
   direnv hook fish | source
 end
 
+# Configure fzf fish plugin
+fzf_configure_bindings
