@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ESC=$(printf '\033')
 BOLD="${ESC}[1m"
@@ -76,13 +76,13 @@ fi
 if [ "$system_type" = "Linux" ]; then
   distribution=$(cat /etc/*-release | grep -e '^NAME=".*"$' | cut -c 6- | xargs)
 
-  if [ "$distribution" = 'Ubuntu' ]; then
+  if [[ $distribution == *"Ubuntu"* ]]; then
     install_unix
     add_apt_repo_ubuntu
     install_apt
     configure_fish
     configure_neovim
-  elif [ "$distribution" = 'Debian' ]; then
+  elif [[ $distribution == *"Debian"* ]]; then
     install_unix
     add_apt_repo_debian
     install_apt 
@@ -93,4 +93,3 @@ if [ "$system_type" = "Linux" ]; then
     exit 1
   fi
 fi
-
