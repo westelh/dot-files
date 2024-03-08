@@ -22,13 +22,15 @@ Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'altercation/vim-colors-solarized'
+Plug 'nanotech/jellybeans.vim'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 " set colorscheme
 " solarized needs background to be set to dark or light
-set background=dark
-colorscheme solarized
+" set background=dark
+" colorscheme solarized
+colorscheme jellybeans
 
 nnoremap <C-n> :NERDTreeFocus<CR>
 
