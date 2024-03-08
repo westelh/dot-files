@@ -23,11 +23,11 @@ install_unix () {
   fish_add_path $HOME/.local/share/pyenv/bin
 }
 
-# Installation step for macos(mainly)
-install_brew () {
+# Installation step for homebrew
+install_homebrew () {
   echo $BOLD_GREEN "Installation by homebrew" $RESET
   if ! command -v brew >/dev/null 2>&1; then
-    echo "Installing homebrew"
+    echo $BOLD_GREEN "Installing missing brew command"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
 
@@ -68,7 +68,7 @@ configure_neovim () {
 # Actual installation by calling the functions
 if [ "$system_type" = "Darwin" ]; then
   install_unix
-  install_brew
+  install_homebrew
   configure_fish
   configure_neovim
 fi
@@ -80,12 +80,14 @@ if [ "$system_type" = "Linux" ]; then
     install_unix
     add_apt_repo_ubuntu
     install_apt
+    install_homebrew
     configure_fish
     configure_neovim
   elif [[ $distribution == *"Debian"* ]]; then
     install_unix
     add_apt_repo_debian
     install_apt 
+    install_homebrew
     configure_fish
     configure_neovim
   else
