@@ -28,9 +28,9 @@ call plug#end()
 
 " set colorscheme
 " solarized needs background to be set to dark or light
-" set background=dark
-" colorscheme solarized
-colorscheme jellybeans
+set background=dark
+set notermguicolors
+colorscheme solarized
 
 nnoremap <C-n> :NERDTreeFocus<CR>
 
