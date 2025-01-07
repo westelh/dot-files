@@ -5,6 +5,9 @@ set -gx EDITOR nvim
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_DATA_HOME $HOME/.local/share
 
+# GPG TTY
+set -gx GPG_TTY (tty)
+
 # Interactive shell configuration
 if status is-interactive
     abbr --add nv nvim
