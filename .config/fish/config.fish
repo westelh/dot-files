@@ -59,3 +59,5 @@ fzf_configure_bindings
 
 # Interacitve mode is vim-like
 fish_vi_key_bindings
+
+bind \cq ghq-fzf
