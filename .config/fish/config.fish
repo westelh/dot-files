@@ -54,3 +54,8 @@ set PATH $PATH /Users/taisei/.local/bin
 
 # Start tmux session
 #exec tmux new-session -A -s (generate_hfid)
+
+fzf_configure_bindings
+
+# Interacitve mode is vim-like
+fish_vi_key_bindings
