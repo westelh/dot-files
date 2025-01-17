@@ -1,0 +1,57 @@
+# 外部コマンド実行後にキー入力を待たない
+set wait_key=no
+
+# パイプに流す前にメッセージをデコードする
+set pipe_decode=yes
+set pipe_sep="---mail separator---"
+
+bind pager j next-line
+bind pager k previous-line
+
+macro index \cA <tag-pattern>~A<enter> "Tag all messages"
+macro index \cu <tag-pattern>~U<enter> "Tag all unread messages"
+macro index,pager 0 <pipe-message>~/.config/neomutt/sgpt_integration.sh<enter> "Shell GPTで要約する"
+
+# Sidebar
+set sidebar_visible
+set sidebar_format = "%D%<F? [%F]>%* %<N?%N/>%S"
+set sort=reverse-date-received
+
+#View
+set mailcap_path = ~/.config/neomutt/mailcap
+auto_view text/html application/pdf
+macro index,pager \cb "<pipe-message> urlscan<Enter>"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>"
+
+#Cache
+set header_cache=/var/tmp/mutt/headers
+set message_cachedir=/var/tmp/mutt/bodies
+set certificate_file=~/.mutt/trust/certificates
+
+source ~/.config/neomutt/solarized-dark-256.muttrc
+color progress white red
+
+# Imap
+set realname = "Taisei Nishiumi"
+set from = "nisyumidon@gmail.com"
+set imap_user = "nisyumidon@gmail.com"
+set imap_authenticators="oauthbearer:xoauth2"
+set smtp_authenticators=${imap_authenticators}
+set imap_oauth_refresh_command="~/.config/neomutt/mutt_oauth2.py ~/.config/neomutt/${imap_user}.tokens --encryption-pipe \"gpg --encrypt --recipient nisyumidon@gmail.com\""
+set smtp_oauth_refresh_command=${imap_oauth_refresh_command}
+set spoolfile=imaps://imap.gmail.com/
+set folder=$spoolfile
+set trash=+[Gmail]/ゴミ箱
+mailboxes -label "📥 受信トレイ" -poll -notify +Inbox
+mailboxes -label "🗑️ ごみ箱" -nopoll -nonotify +[Gmail]/ゴミ箱
+mailboxes -label "📦 アーカイブ" -nopoll -nonotify +[Gmail]/すべてのメール
+# Sync periodicaly
+set mail_check_stats
+set mail_check=90
+set timeout=15
+set imap_qresync
+set imap_deflate
+
+# Local
+mailboxes -label HUCCローカルアーカイブ ~/Mail/HUCC/Archive
+
