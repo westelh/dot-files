@@ -53,4 +53,3 @@ option_as_alt = "Both"
 [general]
 import = ["/Users/taisei/.config/alacritty/themes/themes/solarized_dark.toml"]
 
-[terminal]
