@@ -23,33 +23,15 @@ style = "Italic"
 family = "FiraCode Nerd Font Mono"
 style = "Regular"
 
-[[keyboard.bindings]]
-chars = "\u001B\u0006"
-key = "F"
-mods = "Control|Alt"
-
-[[keyboard.bindings]]
-chars = "\u001B\f"
-key = "L"
-mods = "Control|Alt"
-
-[[keyboard.bindings]]
-chars = "\u001B\u0013"
-key = "S"
-mods = "Control|Alt"
-
-[[keyboard.bindings]]
-chars = "\u001B\u0010"
-key = "P"
-mods = "Control|Alt"
+[keyboard]
+bindings = []
 
 [terminal.shell]
 program = "/bin/zsh"
 
-[window]
-opacity = 1.0
-option_as_alt = "Both"
-
 [general]
 import = ["/Users/taisei/.config/alacritty/themes/themes/solarized_dark.toml"]
 
+[window]
+opacity = 1.0
+option_as_alt = "Both"
