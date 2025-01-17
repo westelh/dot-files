@@ -1,0 +1,9 @@
+# 'v' を使って個別にパートを見るとき。w3m をインタラクティブに使う
+text/html; w3m -I %{charset} -T text/html; needsterminal
+# 一覧からメールを開いたとき。テキストとして描画
+text/html; w3m -I %{charset} -T text/html -dump -cols ${COLUMNS:-80}; copiousoutput
+# PDF
+application/pdf; pdftotext -layout - -; copiousoutput
+application/pdf; pdftotext -layout - -; copiousoutput
+
+image/*; open -a Preview.app -f;
