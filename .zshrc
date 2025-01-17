@@ -19,7 +19,8 @@ if command -v tmux > /dev/null 2>&1; then
 
     # If 'default' session does not exist
     else
-      tmux new-session -s default -n mail 'neomutt'
+      tmux new-session -s default -n mail
+      tmux send-keys -t default:mail 'neomutt' C-m
     fi
   fi
 else
