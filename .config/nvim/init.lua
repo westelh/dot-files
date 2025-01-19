@@ -6,6 +6,7 @@ vim.o.autoindent = true
 vim.o.number = true
 vim.o.list = true
 vim.o.ambiwidth = 'double'
+vim.o.conceallevel = 1
 
 vim.cmd 'syntax enable'
 

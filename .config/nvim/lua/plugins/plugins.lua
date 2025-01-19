@@ -38,6 +38,7 @@ return {
   { "ryanoasis/vim-devicons", lazy = true },
   {
     "bronson/vim-trailing-whitespace",
+    lazy = false,
     config = function()
       vim.cmd([[autocmd VimEnter * ++once call matchadd('ExtraWhitespace', "[\u00A0\u2000-\u200B\u3000]") | highlight ExtraWhitespace ctermbg=darkmagenta guibg=darkmagenta]])
     end,
