@@ -8,6 +8,8 @@ vim.o.list = true
 vim.o.ambiwidth = 'double'
 vim.o.conceallevel = 1
 
+vim.g.mapleader = "\\<Space>"
+
 vim.cmd 'syntax enable'
 
 require("config.lazy")
