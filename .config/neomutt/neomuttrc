@@ -1,16 +1,18 @@
 # 外部コマンド実行後にキー入力を待たない
 set wait_key=no
 
-# パイプに流す前にメッセージをデコードする
-set pipe_decode=yes
-set pipe_sep="---mail separator---"
-
 bind pager j next-line
 bind pager k previous-line
 
 macro index \cA <tag-pattern>~A<enter> "Tag all messages"
 macro index \cu <tag-pattern>~U<enter> "Tag all unread messages"
-macro index,pager 0 <pipe-message>~/.config/neomutt/sgpt_integration.sh<enter> "Shell GPTで要約する"
+macro index,pager 0 '\
+<enter-command>set pipe_decode=yes<enter>\
+<enter-command>set pipe_sep="---mail separator---"<enter>\
+<pipe-message>~/.config/neomutt/sgpt_integration.sh<enter> \
+<enter-command>unset pipe_decode<enter>\
+<enter-command>unset pipe_sep<enter>\
+"Shell GPTで要約する"'
 
 # Sidebar
 set sidebar_visible
