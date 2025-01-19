@@ -32,5 +32,7 @@ source `=s:plugin_config . 'vim-solarized.vim'`
 source `=s:plugin_config . 'vim-airline.vim'`
 source `=s:plugin_config . 'nerdtree.vim'`
 source `=s:plugin_config . 'vim-trailing-whitespace.vim'`
+source `=s:plugin_config . 'copilot.vim'`
 
 nnoremap <C-n> :NERDTreeToggle<CR>
+
