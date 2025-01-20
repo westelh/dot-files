@@ -48,7 +48,6 @@ if command -v direnv >/dev/null 2>&1
   direnv hook fish | source
 end
 
-
 # Created by `pipx` on 2025-01-07 15:25:01
 set PATH $PATH /Users/taisei/.local/bin
 
@@ -57,7 +56,8 @@ set PATH $PATH /Users/taisei/.local/bin
 
 fzf_configure_bindings
 
-# Interacitve mode is vim-like
-fish_vi_key_bindings
+# Use default emacs-like bindings
+# https://atmarkit.itmedia.co.jp/ait/articles/1708/10/news008.html
+fish_default_key_bindings
 
 bind \cq ghq-fzf
