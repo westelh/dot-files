@@ -39,10 +39,11 @@ return {
     },
   },
   keys = {
-    { "<leader>os", "<cmd>ObsidianSearch<cr>", desc = "Search obsidian documents by ripgrep"},
-    { "<leader>on", "<cmd>ObsidianQuickSwitch<cr>", desc = "Search obsidian documents for its name"},
+    { "<leader>os", "<cmd>ObsidianSearch<cr>", desc = "Search Obsidian documents by ripgrep"},
+    { "<leader>on", "<cmd>ObsidianQuickSwitch<cr>", desc = "Search Obsidian documents for its name"},
     { "<leader>of", "<cmd>ObsidianFollowLink<cr>", desc = "Follow wikilink"},
     { "<leader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "Open backlinks"},
+    { "<leader>oo", "<cmd>ObsidianOpen<cr>", desc = "Open Obsidian document"},
   }
 }
 
