@@ -42,7 +42,7 @@ return {
     { "<leader>os", "<cmd>ObsidianSearch<cr>", desc = "Search obsidian documents by ripgrep"},
     { "<leader>on", "<cmd>ObsidianQuickSwitch<cr>", desc = "Search obsidian documents for its name"},
     { "<leader>of", "<cmd>ObsidianFollowLink<cr>", desc = "Follow wikilink"},
-    { "<leader>ob", "<cmd>ObsidianBackLinks<cr>", desc = "Open backlinks"},
+    { "<leader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "Open backlinks"},
   }
 }
 
