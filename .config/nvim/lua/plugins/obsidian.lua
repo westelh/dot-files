@@ -39,7 +39,8 @@ return {
     },
   },
   keys = {
-    { "<leader>os", "<cmd>ObsidianQuickSwitch<cr>", desc = "Switch obsidian documents"},
+    { "<leader>os", "<cmd>ObsidianSearch<cr>", desc = "Search obsidian documents by ripgrep"},
+    { "<leader>on", "<cmd>ObsidianQuickSwitch<cr>", desc = "Search obsidian documents for its name"},
   }
 }
 
