@@ -19,13 +19,13 @@ local cmds = {
 
 return {
   "epwalsh/obsidian.nvim",
-  cmd = cmds,
-  ft = "markdown",
   version = "*", -- recommended, use latest release instead of latest commit
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "hrsh7th/nvim-cmp" -- for completion of note references.
+    "hrsh7th/nvim-cmp", -- for completion of note references.
+    "nvim-telescope/telescope.nvim",
   },
+  cmd = cmds,
   opts = {
     workspaces = {
       {
@@ -34,5 +34,8 @@ return {
       },
     },
   },
+  keys = {
+    { "<leader>os", "<cmd>ObsidianQuickSwitch<cr>", desc = "Switch obsidian documents"},
+  }
 }
 
