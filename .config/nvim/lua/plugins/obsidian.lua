@@ -1,22 +1,3 @@
-local cmds = {
-    "ObsidianBacklinks",
-    "ObsidianCheck",
-    "ObsidianFollowLink",
-    "ObsidianLink",
-    "ObsidianLinkNew",
-    "ObsidianNew",
-    "ObsidianOpen",
-    "ObsidianPasteImg",
-    "ObsidianQuickSwitch",
-    "ObsidianRename",
-    "ObsidianSearch",
-    "ObsidianTemplate",
-    "ObsidianToday",
-    "ObsidianTomorrow",
-    "ObsidianWorkspace",
-    "ObsidianYesterday",
-}
-
 return {
   "epwalsh/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit
@@ -25,7 +6,22 @@ return {
     "hrsh7th/nvim-cmp", -- for completion of note references.
     "nvim-telescope/telescope.nvim",
   },
-  cmd = cmds,
+  ft = "markdown",
+
+  -- Globally available commands trigger the lazy load
+  cmd = {
+    "ObsidianCheck",
+    "ObsidianNew",
+    "ObsidianOpen",
+    "ObsidianQuickSwitch",
+    "ObsidianRename",
+    "ObsidianSearch",
+    "ObsidianTemplate",
+    "ObsidianToday",
+    "ObsidianTomorrow",
+    "ObsidianWorkspace",
+    "ObsidianYesterday",
+  },
   opts = {
     workspaces = {
       {
@@ -37,13 +33,25 @@ return {
       nvim_cmp = true,
       min_chars = 2,
     },
+    mappings = {
+      -- Buffer local keymappings here will be loaded when plugin is lazy-loaded
+      ["<localleader>o"] = {
+        action = "<cmd>ObsidianOpen<cr>",
+        opts = { buffer = true, desc = "Open current document in Obsidian App" },
+      },
+      ["<localleader>f"] = {
+        action = "<cmd>ObsidianFollowLink<cr>",
+        opts = { buffer = true, desc = "Follow the link under the cursor" },
+      },
+      ["<localleader>b"] = {
+        action = "<cmd>ObsidianBacklinks<cr>",
+        opts = { buffer = true, desc = "Search backlinks of this document" },
+      }
+    }
   },
   keys = {
-    { "<leader>os", "<cmd>ObsidianSearch<cr>", desc = "Search Obsidian documents by ripgrep"},
-    { "<leader>on", "<cmd>ObsidianQuickSwitch<cr>", desc = "Search Obsidian documents for its name"},
-    { "<leader>of", "<cmd>ObsidianFollowLink<cr>", desc = "Follow wikilink"},
-    { "<leader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "Open backlinks"},
-    { "<leader>oo", "<cmd>ObsidianOpen<cr>", desc = "Open Obsidian document"},
+    { "<leader>o", "<cmd>ObsidianSearch<cr>", desc = "Search Obsidian documents"},
+    { "<leader>n", "<cmd>ObsidianNew<cr>", desc = "Create new Obsidian document"},
   }
 }
 
