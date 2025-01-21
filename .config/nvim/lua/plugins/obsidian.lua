@@ -22,6 +22,10 @@ return {
     "ObsidianWorkspace",
     "ObsidianYesterday",
   },
+  keys = {
+    { "<leader>o", "<cmd>ObsidianSearch<cr>", desc = "Search Obsidian documents"},
+    { "<leader>n", "<cmd>ObsidianNew<cr>", desc = "Create new Obsidian document"},
+  },
   opts = {
     workspaces = {
       {
@@ -47,11 +51,21 @@ return {
         action = "<cmd>ObsidianBacklinks<cr>",
         opts = { buffer = true, desc = "Search backlinks of this document" },
       }
-    }
+    },
+    note_frontmatter_func = function(note)
+      if note.title then
+        note:add_alias(note.title)
+      end
+      local out = { id = note.id, aliases = note.aliases, tags = note.tags, title = note.title }
+      -- `note.metadata` contains any manually added fields in the frontmatter.
+      -- So here we just make sure those fields are kept in the frontmatter.
+      if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
+        for k, v in pairs(note.metadata) do
+          out[k] = v
+        end
+      end
+      return out
+    end,
   },
-  keys = {
-    { "<leader>o", "<cmd>ObsidianSearch<cr>", desc = "Search Obsidian documents"},
-    { "<leader>n", "<cmd>ObsidianNew<cr>", desc = "Create new Obsidian document"},
-  }
 }
 
