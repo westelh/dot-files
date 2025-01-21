@@ -7,18 +7,18 @@ return {
 
   keys = {
     {
-      "<leader>s",
+      "<leader>?",
       function()
         require("which-key").show()
       end,
-      desc = "Keymaps (which-key)",
+      desc = "Show global keymaps",
     },
     {
-      "<leader>S",
+      "<leader>\\",
       function()
         require("which-key").show({global=false})
       end,
-      desc = "Buffer Local Keymaps (which-key)",
+      desc = "Show buffer local keymaps",
     },
   },
 }
