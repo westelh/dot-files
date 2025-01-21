@@ -13,55 +13,60 @@
 .viminfo
 .Brewfile.lock.json
 
-# Directories
-/.step
+# Ignore personal directories
 /Music
+/Mail
+/Pictures
+/IdeaSnapshots
+/Desktop
+/Library
+/Movies
+/Applications
+/Documents
+/Public
+/Dev
+/Downloads
+/go
+/.Trash
+
+# Ignore rude configs
+/.step
 /.bin
 /.docker
 /.vim
 /.terminfo
-/go
-/.gnupg
 /.n
 /.w3m
 /.hawtjni
 /.vagrant.d
-/Mail
 /.oci
 /.local
-/Pictures
-/IdeaSnapshots
 /.lima
 /.colima
 /.vagrant
 /.finch
-/Desktop
-/Library
 /.dlv
 /.cups
-/Public
 /.kube
 /.mutt
 /.ansible
 /.tldr
 /.ssh
-/Movies
-/Applications
 /.fn
 /.gradle
-/.Trash
-/Dev
 /.npm
 /.terraform.d
-/Documents
 /.pyenv
 /.vscode
 /.m2
 /.swiftpm
-/Downloads
 /.cache
 /.zsh_sessions
 /.composer
+
+# Ignore .gnupg/ but track gpg-agent.conf
+/.gnupg/*
+!/.gnupg/gpg-agent.conf
 
 # Ignore tools
 /.config/ansible/
