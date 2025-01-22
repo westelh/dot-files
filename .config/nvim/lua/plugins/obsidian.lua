@@ -1,3 +1,4 @@
+-- https://github.com/epwalsh/obsidian.nvim
 return {
   "epwalsh/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit
@@ -70,6 +71,10 @@ return {
       end
       return out
     end,
+    follow_url_func = function(url)
+      local system = require("config.system")
+      system.open(url)
+    end
   },
 }
 
