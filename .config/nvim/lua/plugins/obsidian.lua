@@ -50,7 +50,11 @@ return {
       ["<localleader>b"] = {
         action = "<cmd>ObsidianBacklinks<cr>",
         opts = { buffer = true, desc = "Search backlinks of this document" },
-      }
+      },
+      ["<localleader>l"] = {
+        action = "<cmd>ObsidianLinks<cr>",
+        opts = { buffer = true, desc = "List the all links on this document" },
+      },
     },
     note_frontmatter_func = function(note)
       if note.title then
