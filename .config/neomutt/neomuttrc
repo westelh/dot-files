@@ -13,6 +13,8 @@ macro index,pager 0 '\
 <enter-command>unset pipe_decode<enter>\
 <enter-command>unset pipe_sep<enter>\
 "Shell GPTで要約する"'
+macro index,pager 9 "<pipe-message> urlscan<Enter>"
+macro attach,compose 9 "<pipe-entry> urlscan<Enter>"
 
 # Sidebar
 set sidebar_visible
@@ -22,8 +24,6 @@ set sort=reverse-date-received
 #View
 set mailcap_path = ~/.config/neomutt/mailcap
 auto_view text/html application/pdf
-macro index,pager \cb "<pipe-message> urlscan<Enter>"
-macro attach,compose \cb "<pipe-entry> urlscan<Enter>"
 
 #Cache
 set header_cache=/var/tmp/mutt/headers
