@@ -17,6 +17,7 @@ if status is-interactive
     abbr --add tm tmux
     abbr --add tree eza --tree
     abbr --add gs git status -s
+    abbr --add top htop
 end
 
 # Disable less history file
