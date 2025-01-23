@@ -2,8 +2,8 @@ return {
   "hrsh7th/nvim-cmp",
   event = "BufEnter",
   dependencies = {
-    -- Buffer
     "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
     -- LSP
     "neovim/nvim-lspconfig",
     "hrsh7th/cmp-nvim-lsp",
@@ -11,6 +11,42 @@ return {
   config = function()
     local cmp = require'cmp'
     cmp.setup({
+      window = {
+        completion = cmp.config.window.bordered(),
+      },
+      formatting = {
+        format = function(_, vim_item)
+          local CompletionItemKind = {
+            Text = "✎",
+            Method = "ƒ",
+            Function = "λ",
+            Constructor = "🏗",
+            Field = "🌾",
+            Variable = "𝑥",
+            Class = "🏛",
+            Interface = "🔗",
+            Module = "📦",
+            Property = "🏠",
+            Unit = "📏",
+            Value = "💎",
+            Enum = "🔠",
+            Keyword = "🔑",
+            Snippet = "✂",
+            Color = "🎨",
+            File = "📄",
+            Reference = "🔍",
+            Folder = "📂",
+            EnumMember = "📍",
+            Constant = "🔒",
+            Struct = "🧩",
+            Event = "📅",
+            Operator = "➕",
+            TypeParameter = "🔣",
+          }
+          vim_item.kind = CompletionItemKind[vim_item.kind]
+          return vim_item
+        end
+      },
       mapping = cmp.mapping.preset.insert({
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -20,6 +56,7 @@ return {
       }),
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
+        { name = 'path' },
       }, {
         { name = 'buffer' },
       }),
