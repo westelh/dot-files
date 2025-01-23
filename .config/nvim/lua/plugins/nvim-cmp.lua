@@ -1,6 +1,6 @@
 return {
   "hrsh7th/nvim-cmp",
-  lazy = false,
+  event = "BufEnter",
   dependencies = {
     -- Buffer
     "hrsh7th/cmp-buffer",
@@ -28,7 +28,32 @@ return {
     -- LSPCONFIG SETUP
     -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
-    require'lspconfig'.lua_ls.setup({})
+    require'lspconfig'.lua_ls.setup({
+      capabilities = capabilities,
+      on_init = function (client)
+        if client.workspace_folders then
+          local path = client.workspace_folders[1].name
+          if vim.loop.fs_stat(path..'/.luarc.json') or vim.loop.fs_stat(path..'/.luarc.jsonc') then
+            return
+          end
+        end
+        client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+          runtime = { version = 'LuaJIT' },
+          checkThirdParty = false,
+          workspace = {
+            library = {
+              vim.env.VIMRUNTIME,
+              '~/Documents/LLS-Addons/luvit'
+            },
+          }
+        })
+      end,
+      settings = { Lua = {} },
+    })
+
+    -- Lazy load of lspconfig runs autocmd after the BufReadPost event
+    -- Here explicitly start and attach lsp to the buffer.
+    vim.cmd 'LspStart'
   end,
 }
 
