@@ -18,6 +18,7 @@ if status is-interactive
     abbr --add tree eza --tree
     abbr --add gs git status -s
     abbr --add top htop
+    abbr --add ls eza --icons=always --long --git --no-time --no-permissions --no-user --no-filesize
 end
 
 # Disable less history file
