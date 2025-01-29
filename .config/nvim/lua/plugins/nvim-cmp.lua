@@ -7,6 +7,9 @@ return {
     -- LSP
     "neovim/nvim-lspconfig",
     "hrsh7th/cmp-nvim-lsp",
+    -- Snippet
+    "L3MON4D3/LuaSnip",
+    "saadparwaiz1/cmp_luasnip",
   },
   config = function()
     local cmp = require'cmp'
@@ -60,6 +63,11 @@ return {
       }, {
         { name = 'buffer' },
       }),
+      snippet = {
+        expand = function(args)
+          require'luasnip'.lsp_expand(args.body)
+        end
+      }
     })
 
     -- LSPCONFIG SETUP
