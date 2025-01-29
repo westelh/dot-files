@@ -2,6 +2,7 @@ return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   event = { "BufReadPost", "BufNewFile" },
+  version = "v0.9.*",
 
   -- $type TSConfig
   opts = {
