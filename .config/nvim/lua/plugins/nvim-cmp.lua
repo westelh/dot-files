@@ -1,3 +1,31 @@
+local cmp_kinds = {
+  Text = ' Text',
+  Method = ' Method',
+  Function = ' Function',
+  Constructor = ' Constructor',
+  Field = ' Field',
+  Variable = ' Variable',
+  Class = ' Class',
+  Interface = ' Interface',
+  Module = ' Module',
+  Property = ' Property',
+  Unit = ' Unit',
+  Value = ' Value',
+  Enum = ' Enum',
+  Keyword = ' Keyword',
+  Snippet = ' Snippet',
+  Color = ' Color',
+  File = ' File',
+  Reference = ' Reference',
+  Folder = ' Folder',
+  EnumMember = ' EnumMember',
+  Constant = ' Constant',
+  Struct = ' Struct',
+  Event = ' Event',
+  Operator = ' Operator',
+  TypeParameter = ' TypeParameter',
+}
+
 return {
   "hrsh7th/nvim-cmp",
   event = "BufEnter",
@@ -13,40 +41,14 @@ return {
   },
   config = function()
     local cmp = require'cmp'
+    local luasnip = require'luasnip'
     cmp.setup({
       window = {
         completion = cmp.config.window.bordered(),
       },
       formatting = {
         format = function(_, vim_item)
-          local CompletionItemKind = {
-            Text = "✎",
-            Method = "ƒ",
-            Function = "λ",
-            Constructor = "🏗",
-            Field = "🌾",
-            Variable = "𝑥",
-            Class = "🏛",
-            Interface = "🔗",
-            Module = "📦",
-            Property = "🏠",
-            Unit = "📏",
-            Value = "💎",
-            Enum = "🔠",
-            Keyword = "🔑",
-            Snippet = "✂",
-            Color = "🎨",
-            File = "📄",
-            Reference = "🔍",
-            Folder = "📂",
-            EnumMember = "📍",
-            Constant = "🔒",
-            Struct = "🧩",
-            Event = "📅",
-            Operator = "➕",
-            TypeParameter = "🔣",
-          }
-          vim_item.kind = CompletionItemKind[vim_item.kind]
+          vim_item.kind = cmp_kinds[vim_item.kind]
           return vim_item
         end
       },
@@ -55,8 +57,38 @@ return {
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-1>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-      }),
+        ['<CR>'] =cmp.mapping(function(fallback)
+          if cmp.visible() then
+            if luasnip.expandable then
+              luasnip.expand()
+            else
+              cmp.confim({
+                select = true,
+              })
+            end
+          else
+            fallback()
+          end
+        end),
+        ['<Tab>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          elseif luasnip.locally_jumpable(1) then
+            luasnip.jump(1)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif luasnip.locally_jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+       }),
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'path' },
