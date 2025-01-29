@@ -38,10 +38,17 @@ return {
     -- Snippet
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
+    -- For color customize
+    "maxmx03/solarized.nvim",
   },
   config = function()
     local cmp = require'cmp'
     local luasnip = require'luasnip'
+    local colors = require('solarized.utils').get_colors()
+
+    vim.api.nvim_set_hl(0, 'CmpItemAbbrMatch', { bg='NONE', fg=colors.yellow })
+    vim.api.nvim_set_hl(0, 'CmpItemAbbrMatchFuzzy', { link='CmpIntemAbbrMatch' })
+
     cmp.setup({
       window = {
         completion = cmp.config.window.bordered(),
