@@ -4,6 +4,7 @@ return {
   version = "*",
   opts = {
     open_mapping = [[<c-\>]],
+    direction = "float"
   },
   init = function ()
     lazygit = require'toggleterm.terminal'.Terminal:new({
