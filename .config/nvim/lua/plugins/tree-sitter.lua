@@ -17,6 +17,8 @@ return {
       "javascript",
       "html",
       "cue",
+      "helm",
+      "yaml",
     },
     sync_install = false,
     highlight = { enable = true },
