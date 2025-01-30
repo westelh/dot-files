@@ -1,4 +1,5 @@
 local lazygit = nil
+
 return {
   "akinsho/toggleterm.nvim",
   version = "*",
@@ -20,5 +21,5 @@ return {
   keys = {
     { [[<c-\>]] },
     { "<leader>g", function() lazygit:toggle() end },
-  }
+  },
 }

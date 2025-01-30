@@ -13,6 +13,13 @@ vim.cmd 'syntax enable'
 require("config.lazy")
 local system = require("config.system")
 
+vim.filetype.add({
+  pattern = {
+    [".*/templates/.*%.yaml"] = "helm",
+    [".*/templates/.*%.tpl"] = "helm",
+  },
+})
+
 local function open(it, fallback)
   if it:match("^http://") or it:match("^https://") then
     system.open(it)
