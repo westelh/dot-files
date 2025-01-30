@@ -19,6 +19,7 @@ if status is-interactive
     abbr --add gs git status -s
     abbr --add top htop
     abbr --add ls eza --icons=always --long --git --no-time --no-permissions --no-user --no-filesize
+    abbr --add lg lazygit
 end
 
 # Disable less history file
