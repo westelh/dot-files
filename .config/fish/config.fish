@@ -20,6 +20,8 @@ if status is-interactive
     abbr --add top htop
     abbr --add lg lazygit
     abbr --add ls lse
+    abbr --add ya yadm add
+    abbr --add yc yadm commit
 end
 
 # Disable less history file
