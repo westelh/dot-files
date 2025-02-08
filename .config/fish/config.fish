@@ -60,7 +60,7 @@ set PATH $PATH /Users/taisei/.local/bin
 fzf_configure_bindings
 
 # Use default emacs-like bindings
-# https://atmarkit.itmedia.co.jp/ait/articles/1708/10/news008.html
-fish_default_key_bindings
+#fish_default_key_bindings
+fish_vi_key_bindings
 
 bind \cq ghq-fzf
