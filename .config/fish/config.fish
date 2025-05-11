@@ -65,4 +65,5 @@ fzf_configure_bindings
 #fish_default_key_bindings
 fish_vi_key_bindings
 
-bind \cq ghq-fzf
+bind -M insert ctrl-q ghq-fzf
+
