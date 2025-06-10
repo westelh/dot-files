@@ -10,7 +10,7 @@ set -gx GPG_TTY (tty)
 
 # Interactive shell configuration
 if status is-interactive
-    abbr --add nv nvim
+    abbr --add nv neovide
     abbr --add vg vagrant
     abbr --add ku kubectl
     abbr --add tf terraform
@@ -22,6 +22,9 @@ if status is-interactive
     abbr --add ls lse
     abbr --add ya yadm add
     abbr --add yc yadm commit
+    abbr --add co pbcopy
+    abbr --add pa pbpaste
+    abbr --add ly lazygit -ucd ~/.local/share/yadm/lazygit -w ~ -g ~/.local/share/yadm/repo.git
 end
 
 # Disable less history file
