@@ -39,7 +39,7 @@ set from = "nisyumidon@gmail.com"
 set imap_user = "nisyumidon@gmail.com"
 set imap_authenticators="oauthbearer:xoauth2"
 set smtp_authenticators=${imap_authenticators}
-set imap_oauth_refresh_command="~/.config/neomutt/mutt_oauth2.py ~/.config/neomutt/${imap_user}.tokens --encryption-pipe \"gpg --encrypt --recipient nisyumidon@gmail.com\""
+set imap_oauth_refresh_command="vault kv get -mount=kv -field=accessToken applications/oauth/117287642368863619014 | cat -"
 set smtp_oauth_refresh_command=${imap_oauth_refresh_command}
 set spoolfile=imaps://imap.gmail.com/
 set folder=$spoolfile
