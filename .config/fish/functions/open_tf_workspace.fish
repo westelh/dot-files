@@ -1,11 +1,13 @@
-# https://app.terraform.io/app/westelh/workspaces/parrot-oke-stg
 function open_tf_workspace
-  set -l organization "westelh"
+  set -f organization "westelh"
+
   if test -n "$argv"
-    set -l workspace "$argv"
+    set -f workspace "$argv"
   else
-    set -l workspace ( terraform workspace get )
+    set -f workspace ( terraform workspace show)
   end
-  set -l url "https://app.terraform.io/app/$organization/workspaces/$workspace"
+
+  set -f url "https://app.terraform.io/app/$organization/workspaces/$workspace"
+  echo "Opening $url"
   open $url
 end
