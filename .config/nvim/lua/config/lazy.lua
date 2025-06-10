@@ -21,7 +21,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-vim.keymap.set('n', '<leader>l', '<cmd>Lazy<cr>', { desc = "Open lazy.vim plugin manager" })
+vim.keymap.set('n', '<leader>p', '<cmd>Lazy<cr>', { desc = "Open lazy.vim plugin manager" })
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -34,5 +34,8 @@ require("lazy").setup({
   install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
+  defaults = {
+    lazy = true
+  }
 })
 
