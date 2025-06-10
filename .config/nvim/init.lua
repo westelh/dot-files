@@ -7,16 +7,19 @@ vim.o.number = true
 vim.o.list = true
 vim.o.ambiwidth = 'single'
 vim.o.conceallevel = 1
-
 vim.cmd 'syntax enable'
 
-require("config.lazy")
 local system = require("config.system")
+require("config.lazy")
+require('config.sessions')
+require('config.lsp')
+require('config.neovide')
 
 vim.filetype.add({
   pattern = {
     [".*/templates/.*%.yaml"] = "helm",
     [".*/templates/.*%.tpl"] = "helm",
+    ["*.tf"] = "terraform",
   },
 })
 
@@ -27,6 +30,27 @@ local function open(it, fallback)
     fallback(it)
   end
 end
+
+vim.api.nvim_create_autocmd({ 'User' }, {
+  pattern = 'LuasnipChoiceNodeEnter',
+  callback = function()
+    vim.schedule(function()
+      vim.notify('LuasnipChoiceEnter')
+      require("luasnip.extras.select_choice")()
+    end)
+  end
+})
+
+-- Folding
+vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+  pattern = '*',
+  callback = function()
+    vim.o.foldmethod = "expr"
+    vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- ← 正しい関数名
+    vim.o.foldtext = "v:lua.vim.treesitter.foldtext()" -- Lua関数で表示カスタム（任意）
+    vim.o.foldenable = false
+  end
+})
 
 vim.keymap.set("n", "gf", function()
   open(vim.fn.expand("<cfile>"), function()
@@ -40,3 +64,9 @@ vim.keymap.set("n", "gF", function()
   end)
 end)
 
+-- highlight yanked area
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank({ higroup = "IncSearch", timeout = 200 })
+  end,
+})
