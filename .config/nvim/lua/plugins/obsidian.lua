@@ -24,8 +24,8 @@ return {
     "ObsidianYesterday",
   },
   keys = {
-    { "<leader>o", "<cmd>ObsidianSearch<cr>", desc = "Search Obsidian documents"},
-    { "<leader>n", "<cmd>ObsidianNew<cr>", desc = "Create new Obsidian document"},
+    { "<leader>qs", "<cmd>ObsidianSearch<cr>", desc = "Search Obsidian documents"},
+    { "<leader>qn", "<cmd>ObsidianNew<cr>", desc = "Create new Obsidian document"},
   },
   opts = {
     workspaces = {
