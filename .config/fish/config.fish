@@ -25,6 +25,7 @@ if status is-interactive
     abbr --add co pbcopy
     abbr --add pa pbpaste
     abbr --add ly lazygit -ucd ~/.local/share/yadm/lazygit -w ~ -g ~/.local/share/yadm/repo.git
+    abbr --add cdg cdgitroot
 end
 
 # Disable less history file
