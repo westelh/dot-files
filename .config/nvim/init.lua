@@ -16,10 +16,14 @@ require('config.lsp')
 require('config.neovide')
 
 vim.filetype.add({
+  extension = {
+    -- Map .tf to terraform file
+    -- No need to treat it as TF MUD file
+    tf = "terraform"
+  },
   pattern = {
     [".*/templates/.*%.yaml"] = "helm",
     [".*/templates/.*%.tpl"] = "helm",
-    ["*.tf"] = "terraform",
   },
 })
 
