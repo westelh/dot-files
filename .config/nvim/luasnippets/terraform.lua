@@ -6,6 +6,15 @@ local c = ls.choice_node
 local fmt = require 'luasnip.extras.fmt'.fmta
 
 return {
+  s('cloud', fmt([[
+  cloud {
+    organization = "westelh"
+    workspaces {
+      name    = "<>"
+      project = "<>"
+    }
+  }
+  ]], { i(1), i(2) })),
   s({ trig = 'random3', name = 'Random Provider', desc = 'Random Provider(version 3)' }, fmt([[
   random = {
     source  = "hashicorp/random"
@@ -13,7 +22,7 @@ return {
   }
   ]], {}, { delimiters = '[]' })),
   s({ trig = 'vault5', name = 'Vault Provider', desc = 'Vault Provider(version 5)' }, fmt([[
-  random = {
+  vault = {
     source  = "hashicorp/vault"
     version = "~>5.0"
   }
