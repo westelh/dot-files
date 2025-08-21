@@ -1,9 +1,11 @@
 # This is Git's per-user configuration file.
 [core]
   autocrlf = input
+  sshCommand = ssh.exe
 [user]
   name = Taisei Nishiumi
   email = westelh@gmail.com
 [ghq]
   vcs  = git
   root = /Users/taisei/Dev
+
