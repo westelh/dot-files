@@ -29,6 +29,9 @@ return {
       },
     })
     vim.lsp.enable('lua_ls')
+
+    -- Javascript and Typescript
+    vim.lsp.enable('ts_ls')
   end
 }
 

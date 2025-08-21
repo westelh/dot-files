@@ -26,5 +26,12 @@ return {
     source  = "hashicorp/vault"
     version = "~>5.0"
   }
-  ]], {}, { delimiters = '[]' }))
+  ]], {}, { delimiters = '[]' })),
+
+  s({ trig = 'oci7', name = 'Oracle Provider', desc = 'Oracle Provider(version 7)' }, fmt([[
+  oci = {
+    source  = "oracle/oci"
+    version = "~>7.4"
+  }
+  ]], {}, { delimiters = '[]' })),
 }

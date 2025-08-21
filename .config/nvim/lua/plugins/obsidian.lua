@@ -33,6 +33,10 @@ return {
         name = "Vault",
         path = "~/Documents/Vault",
       },
+      {
+        name = "iCloud",
+        path = "/Users/taisei/Library/Mobile Documents/iCloud~md~obsidian/Documents/My Vault",
+      }
     },
     completion = {
       nvim_cmp = true,
