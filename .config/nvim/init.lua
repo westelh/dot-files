@@ -14,6 +14,7 @@ require("config.lazy")
 require('config.sessions')
 require('config.lsp')
 require('config.neovide')
+require('config.keymap')
 
 vim.filetype.add({
   extension = {
