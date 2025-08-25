@@ -9,7 +9,6 @@ vim.o.ambiwidth = 'single'
 vim.o.conceallevel = 1
 vim.cmd 'syntax enable'
 
-local system = require("config.system")
 require("config.lazy")
 require('config.sessions')
 require('config.lsp')
@@ -29,14 +28,6 @@ vim.filetype.add({
   },
 })
 
-local function open(it, fallback)
-  if it:match("^http://") or it:match("^https://") then
-    system.open(it)
-  else
-    fallback(it)
-  end
-end
-
 vim.api.nvim_create_autocmd({ 'User' }, {
   pattern = 'LuasnipChoiceNodeEnter',
   callback = function()
@@ -46,18 +37,6 @@ vim.api.nvim_create_autocmd({ 'User' }, {
     end)
   end
 })
-
-vim.keymap.set("n", "gf", function()
-  open(vim.fn.expand("<cfile>"), function()
-    vim.cmd("normal! gf")
-  end)
-end)
-
-vim.keymap.set("n", "gF", function()
-  open(vim.fn.expand("<cfile>"), function()
-    vim.cmd("normal! gf")
-  end)
-end)
 
 -- highlight yanked area
 vim.api.nvim_create_autocmd("TextYankPost", {
