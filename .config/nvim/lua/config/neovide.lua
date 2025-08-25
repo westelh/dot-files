@@ -2,7 +2,14 @@
 if vim.g.neovide then
   vim.o.guifont = "PlemolJP35_Console_NF:h14"
 
-  -- GUI does not have osc52 reader
-  vim.g.clipboard = "pbcopy"
-  vim.o.clipboard = "unnamedplus"
+  -- +,*レジスタ経由でシステムクリップボードと同期
+  vim.o.clipboard = "unnamed,unnamedplus"
+
+  -- 環境ごとにツールをオーバーライド
+  if vim.fn.has('mac') == 1 then
+    vim.g.clipboard = "pbcopy"
+  end
+  if vim.fn.has('win32') == 1 then
+    vim.g.clipboard = "win32yank"
+  end
 end
