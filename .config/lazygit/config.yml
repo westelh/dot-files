@@ -1,4 +1,10 @@
 customCommands:
-  - key: 'B'
+  - key: "B"
     context: global
     command: gh browse
+  - key: "<c-a>"
+    context: "global"
+    description: "AI Commit Message"
+    command: |
+      aicommits | tee /tmp/lazygit-commit-msg
+    output: terminal
