@@ -10,7 +10,7 @@ set -gx GPG_TTY (tty)
 
 # Interactive shell configuration
 if status is-interactive
-    abbr --add nv neovide
+    abbr --add nv tmux new -d neovide
     abbr --add vg vagrant
     abbr --add ku kubectl
     abbr --add tf terraform
