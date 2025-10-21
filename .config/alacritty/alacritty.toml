@@ -27,7 +27,7 @@ style = "Bold Italic"
 bindings = []
 
 [terminal.shell]
-program = "/bin/zsh"
+program = "/opt/homebrew/bin/fish"
 
 [general]
 import = ["/Users/taisei/.config/alacritty/themes/themes/solarized_dark.toml"]
