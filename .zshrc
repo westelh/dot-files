@@ -1,3 +1,4 @@
+[[ -r ~/.zprofile ]] && source ~/.zprofile
 autoload -Uz compinit
 compinit
 
@@ -6,4 +7,7 @@ compinit
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/vault vault
 
-exec /opt/homebrew/bin/fish
+# jEnv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
