@@ -26,6 +26,7 @@ if status is-interactive
     abbr --add pa pbpaste
     abbr --add ly lazygit -ucd ~/.local/share/yadm/lazygit -w ~ -g ~/.local/share/yadm/repo.git
     abbr --add cdg cdgitroot
+    abbr --add zj zellij
 end
 
 # Disable less history file
@@ -71,3 +72,5 @@ fish_vi_key_bindings
 
 bind -M insert ctrl-q ghq-fzf
 
+set PATH $HOME/.jenv/bin $PATH
+status --is-interactive; and jenv init - | source
