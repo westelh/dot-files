@@ -1,2 +1,5 @@
-lnks https://github.com/hamvocke/lnks/tree/main
-Auth0 Dashboard https://manage.auth0.com
+lnks                 https://github.com/hamvocke/lnks/tree/main
+Auth0 Dashboard      https://manage.auth0.com
+Github               https://github.com
+Github Notifications https://github.com/notifications
+
