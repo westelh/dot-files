@@ -22,7 +22,7 @@ arch: host
 #
 # NOTE: value cannot be changed after virtual machine is created.
 # Default: docker
-runtime: containerd
+runtime: docker
 
 # Set custom hostname for the virtual machine.
 # Default: colima
