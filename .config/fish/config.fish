@@ -1,3 +1,5 @@
+set -gx SHELL "fish"
+
 # Neovim is my favorite editor
 set -gx EDITOR nvim
 
