@@ -7,11 +7,5 @@ return {
     styles = {
       comments = { italic = true, bold = false },
     }
-  },
-  config = function(_, opts)
-    vim.o.termguicolors = true
-    vim.o.background = 'dark'
-    require('solarized').setup(opts)
-    vim.cmd.colorscheme 'solarized'
-  end,
+  }
 }
