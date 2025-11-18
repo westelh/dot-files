@@ -60,19 +60,9 @@ if command -v direnv >/dev/null 2>&1
   direnv hook fish | source
 end
 
-# Created by `pipx` on 2025-01-07 15:25:01
-set PATH $PATH /Users/taisei/.local/bin
-
-# Start tmux session
-#exec tmux new-session -A -s (generate_hfid)
-
 fzf_configure_bindings
 
-# Use default emacs-like bindings
-#fish_default_key_bindings
-fish_vi_key_bindings
-
-bind -M insert ctrl-q ghq-fzf
+bind -M insert ctrl-e ghq-fzf
 
 set PATH $HOME/.jenv/bin $PATH
 status --is-interactive; and jenv init - | source
