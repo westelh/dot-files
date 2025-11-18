@@ -24,5 +24,9 @@ stashed = "󰀼 "
 untracked = "󰘓 ${count} "
 style = "bold yellow"
 
+[docker_context]
+symbol = "󰡨 "
+
 [kubernetes]
-disabled = false
+symbol = "󱃾 "
+format = 'in [$symbol$context( \($namespace\))]($style) '
