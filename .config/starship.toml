@@ -1,2 +1,28 @@
+# 最低限の左プロンプト
+format = """$directory$git_branch$git_status\n$character"""
+
+# 残りのプロンプトの内容を右に寄せる
+right_format = """$all"""
+
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[git_status]
+format = '([\[ $all_status$ahead_behind\]]($style) )'
+conflicted = "CONFLICTED "
+ahead = "󰆼 ${count} "
+behind = "󰆽 ${count} "
+diverged = "diverged "
+staged = "󰐕 ${count} "
+modified = "✎ ${count} "
+deleted = "󰩹 ${count} "
+renamed = "󰠘 "
+stashed = "󰀼 "
+untracked = "󰘓 ${count} "
+style = "bold yellow"
+
 [kubernetes]
 disabled = false
