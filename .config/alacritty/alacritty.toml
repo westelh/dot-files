@@ -29,8 +29,8 @@ style = "Bold Italic"
 bindings = []
 
 [terminal.shell]
-program = "/opt/homebrew/bin/zellij"
-args = ["attach", "--create", "shell_daemon"]
+program = "/opt/homebrew/bin/fish"
+args = ["-l"]
 
 [general]
 import = ["/Users/taisei/.config/alacritty/alacritty-theme/themes/tokyo_night.toml"]
