@@ -1,77 +1,61 @@
-set -gx SHELL "fish"
-
-# Neovim is my favorite editor
-set -gx EDITOR nvim
-
-# XDG Base Directory Specification
-set -gx XDG_CONFIG_HOME $HOME/.config
-set -gx XDG_DATA_HOME $HOME/.local/share
-
-# GPG TTY
-set -gx GPG_TTY (tty)
-
 # Interactive shell configuration
 if status is-interactive
-    abbr --add nv tmux new -d neovide
-    abbr --add vg vagrant
+    # Abbreviations ─ general tooling
+    abbr --add ls lse
+    abbr --add tm tmux
+    abbr --add top htop
+    abbr --add tree eza --tree
+    abbr --add zj zellij
+    abbr --add nv neovide
+
+    # Abbreviations ─ infra/devops
     abbr --add ku kubectl
     abbr --add tf terraform
-    abbr --add tm tmux
-    abbr --add tree eza --tree
+    abbr --add vg vagrant
+
+    # Abbreviations ─ git & dotfiles
     abbr --add gs git status -s
-    abbr --add top htop
     abbr --add lg lazygit
-    abbr --add ls lse
+    abbr --add ly lazygit -ucd ~/.local/share/yadm/lazygit -w ~ -g ~/.local/share/yadm/repo.git
     abbr --add ya yadm add
     abbr --add yc yadm commit
+    abbr --add cdg cdgitroot
+
+    # Abbreviations ─ clipboard helpers
     abbr --add co pbcopy
     abbr --add pa pbpaste
-    abbr --add ly lazygit -ucd ~/.local/share/yadm/lazygit -w ~ -g ~/.local/share/yadm/repo.git
-    abbr --add cdg cdgitroot
-    abbr --add zj zellij
+
+    # Jenv
+    jenv init - | source
+
+    # Pyenv
+    if type -q pyenv
+      pyenv init - | source
+    end
+
+    # DirEnv
+    if type direnv -q
+      direnv hook fish | source
+    end
+
+    # K9s command completion
+    if type -q k9s
+        eval (k9s completion fish)
+    end
+
+    if type -q starship
+        function starship_transient_prompt_func
+            starship module character
+        end
+
+        function starship_transient_rprompt_func
+            # Intentionally empty to suppress the transient right prompt.
+        end
+
+        starship init fish | source
+
+        if functions -q enable_transience
+            enable_transience
+        end
+    end
 end
-
-# Disable less history file
-set -gx LESSHISTFILE '-'
-
-# Homebrew
-# MacOS
-if test -f /opt/homebrew/bin/brew
-  eval (/opt/homebrew/bin/brew shellenv)
-end
-# Linux
-if test -f /home/linuxbrew/.linuxbrew/bin/brew
-  eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-end
-
-# K9s command completion
-if command -v k9s >/dev/null 2>&1
-  eval (k9s completion fish)
-end
-
-# Pyenv
-set -gx PYENV_ROOT $XDG_DATA_HOME/pyenv
-if command -v pyenv >/dev/null 2>&1
-  pyenv init - | source
-end
-
-# DirEnv
-if command -v direnv >/dev/null 2>&1
-  direnv hook fish | source
-end
-
-fzf_configure_bindings
-
-bind -M insert ctrl-e ghq-fzf
-
-set PATH $HOME/.jenv/bin $PATH
-status --is-interactive; and jenv init - | source
-
-function starship_transient_prompt_func
-  starship module character
-end
-function starship_transient_rprompt_func
-  #starship module time
-end
-starship init fish | source
-enable_transience
