@@ -6,23 +6,23 @@ TERM = "xterm-256color"
 SHELL = "/opt/homebrew/bin/fish"
 
 [font]
-size = 12
+size = 14
 offset = { x = 0, y = 1 }
 
 [font.normal]
-family = "PlemolJP35 Console NF"
+family = "PlemolJP35 Console"
 style = "Regular"
 
 [font.bold]
-family = "PlemolJP35 Console NF"
+family = "PlemolJP35 Console"
 style = "Bold"
 
 [font.italic]
-family = "PlemolJP35 Console NF"
+family = "PlemolJP35 Console"
 style = "Italic"
 
 [font.bold_italic]
-family = "PlemolJP35 Console NF"
+family = "PlemolJP35 Console"
 style = "Bold Italic"
 
 [keyboard]
