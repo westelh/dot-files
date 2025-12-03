@@ -10,19 +10,19 @@ size = 14
 offset = { x = 0, y = 1 }
 
 [font.normal]
-family = "PlemolJP35 Console"
+family = "PlemolJP35 Console NF"
 style = "Regular"
 
 [font.bold]
-family = "PlemolJP35 Console"
+family = "PlemolJP35 Console NF"
 style = "Bold"
 
 [font.italic]
-family = "PlemolJP35 Console"
+family = "PlemolJP35 Console NF"
 style = "Italic"
 
 [font.bold_italic]
-family = "PlemolJP35 Console"
+family = "PlemolJP35 Console NF"
 style = "Bold Italic"
 
 [keyboard]
