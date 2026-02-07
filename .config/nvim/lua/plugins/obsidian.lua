@@ -3,7 +3,7 @@ return {
   "obsidian-nvim/obsidian.nvim",
   version = "*",        -- recommended, use latest release instead of latest commit
   dependencies = {
-    "hrsh7th/nvim-cmp", -- for completion of note references.
+    "saghen/blink.cmp", -- as a completion engine
     "ibhagwan/fzf-lua"  -- as a picker
   },
   ft = "markdown",
@@ -19,8 +19,20 @@ return {
       {
         name = "iCloud",
         path = "/Users/taisei/Library/Mobile Documents/iCloud~md~obsidian/Documents/My Vault",
+      },
+      {
+        name = "Nanaren",
+        path = "/Users/taisei/Library/Mobile Documents/iCloud~md~obsidian/Documents/ななれん",
       }
     },
-    follow_url_func = vim.ui.open
+    -- follow_url_func is deprecated
+    -- follow_url_func = vim.ui.open,
+    note_id_func = function(title)
+      return title
+    end,
+
+    templates = {
+      folder = "templates/"
+    },
   },
 }
