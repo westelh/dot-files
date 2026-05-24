@@ -1,11 +1,18 @@
 # This is Git's per-user configuration file.
 [core]
   autocrlf = input
-  sshCommand = ssh.exe
+	editor = nvim
 [user]
-  name = Taisei Nishiumi
+	name = げ
   email = westelh@gmail.com
 [ghq]
   vcs  = git
   root = /Users/taisei/Dev
 
+[commit]
+	verbose = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
