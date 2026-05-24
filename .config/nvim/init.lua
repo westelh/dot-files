@@ -1,11 +1,11 @@
 require("config.lazy")
-require('config.sessions')
 require('config.lsp')
 require('config.neovide')
 require('config.keymap')
 require('config.folding')
 require('config.filetype')
 require('config.autocmd')
+-- require('config.sessions')
 
 vim.o.expandtab = true
 vim.o.tabstop = 2
@@ -17,4 +17,3 @@ vim.o.list = true
 vim.o.ambiwidth = 'single'
 vim.o.conceallevel = 1
 vim.cmd 'syntax enable'
-

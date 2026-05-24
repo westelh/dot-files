@@ -3,16 +3,21 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   keys = {
     {
-      "<leader>f", function()
+      "<leader>f",
+      function()
         require('fzf-lua').files()
-      end, desc = "Fuzzy find Files"
+      end,
+      desc = "Fuzzy find Files"
     },
     {
-      "<leader>F", function()
+      "<leader>F",
+      function()
         require('fzf-lua').builtin()
-      end, desc = "Fuzzy find Builitin Commands"
+      end,
+      desc = "Fuzzy find Builitin Commands"
     },
   },
-  opts = {
-  }
+  config = function()
+    require('fzf-lua').register_ui_select()
+  end
 }
