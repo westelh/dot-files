@@ -25,9 +25,6 @@ if status is-interactive
     abbr --add co pbcopy
     abbr --add pa pbpaste
 
-    # Jenv
-    jenv init - | source
-
     # Pyenv
     if type -q pyenv
       pyenv init - | source
