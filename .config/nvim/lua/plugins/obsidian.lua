@@ -23,6 +23,10 @@ return {
       {
         name = "Nanaren",
         path = "/Users/taisei/Library/Mobile Documents/iCloud~md~obsidian/Documents/ななれん",
+      },
+      {
+        name = "Obsidian Vault",
+        path = vim.env.USER_DOCUMENT .. 'Obsidian Vault'
       }
     },
     -- follow_url_func is deprecated
