@@ -26,7 +26,7 @@ return {
       },
       {
         name = "Obsidian Vault",
-        path = vim.env.USER_DOCUMENT .. 'Obsidian Vault'
+        path = vim.env.HOME .. '/Documents/My Vault'
       }
     },
     -- follow_url_func is deprecated
