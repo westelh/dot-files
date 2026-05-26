@@ -16,3 +16,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end,
 })
+
+vim.lsp.enable({
+  'terraformls',
+  'helm_ls',
+  'gh_actions_ls',
+  'yamlls',
+  'lua_ls',
+  'ts_ls',
+  'vue_ls',
+  'eslint',
+})
