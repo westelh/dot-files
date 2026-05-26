@@ -5,10 +5,6 @@
 [user]
 	name = げ
   email = westelh@gmail.com
-[ghq]
-  vcs  = git
-  root = /Users/taisei/Dev
-
 [commit]
 	verbose = true
 [filter "lfs"]
@@ -16,3 +12,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[include]
+  path = .gitconfig.local
