@@ -6,7 +6,9 @@ return {
     "neovim/nvim-lspconfig"
   },
 
-  config = function ()
+  ft = { 'yaml', 'lua' },
+
+  config = function()
     local navic = require('nvim-navic')
 
     local onattach = function(client, bufnr)
@@ -15,19 +17,19 @@ return {
       -- configure lualine
       require('lualine').setup({
         sections = {
-          lualine_c = {{
-            function ()
+          lualine_c = { {
+            function()
               return navic.get_location()
             end,
             cond = function()
               return navic.is_available()
             end
-          }}
+          } }
         }
       })
     end
 
-    require('lspconfig').yamlls.setup { on_attach = onattach }
+    vim.lsp.config('yamlls', { on_attach = onattach })
+    vim.lsp.config('lua_ls', { on_attach = onattach })
   end
 }
-
