@@ -5,3 +5,5 @@ export PATH="$PATH:/Users/taisei/.n/bin"
 export N_PREFIX="/Users/taisei/.n"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+source ~/.zprofile.local
