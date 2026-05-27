@@ -25,6 +25,10 @@ if status is-interactive
     abbr --add co pbcopy
     abbr --add pa pbpaste
 
+    # QuickFix for typical CJK issue with k9s
+    # https://github.com/derailed/k9s/issues/2602
+    abbr --add k9s LC_ALL=C.UTF-8 k9s
+
     # Pyenv
     if type -q pyenv
       pyenv init - | source
