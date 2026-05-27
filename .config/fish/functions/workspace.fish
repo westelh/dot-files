@@ -26,7 +26,14 @@ function workspace
 
   set -l session_name "ws-$(string replace '/' '-' $name)"
 
-  if test -z $ZELLIJ
+  if not type -q zellij
+    if type -q ghostty
+      ghostty --working-directory="$path" >/dev/null 2>&1 &
+    else
+      echo "Neither zellij nor ghostty is available."
+      return 1
+    end
+  else if test -z $ZELLIJ
     zellij attach --create $session_name options --default-cwd "$path"
   else
     if test $session_name = $ZELLIJ_SESSION_NAME
