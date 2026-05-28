@@ -6,8 +6,6 @@ return {
     "saghen/blink.cmp", -- as a completion engine
     "ibhagwan/fzf-lua"  -- as a picker
   },
-  ft = "markdown",
-  lazy = false,
 
   ---@module 'obsidian'
   ---@type obsidian.config
@@ -35,4 +33,14 @@ return {
       folder = "templates/"
     },
   },
+
+  keys = {
+    -- Top level commands
+    { "<leader>o",  "<cmd>Obsidian<cr>",              desc = "Open obsidian menu" },
+    { "<leader>os", "<cmd>Obsidian search<cr>",       desc = "Search the vault" },
+    { "<leader>on", "<cmd>Obsidian new<cr>",          desc = "New markdown" },
+    { "<leader>oo", "<cmd>Obsidian open<cr>",         desc = "Open in app" },
+    { "<leader>ot", "<cmd>Obsidian tags<cr>",         desc = "Tag picker" },
+    { "<leader>oq", "<cmd>Obsidian quick_switch<cr>", desc = "Quick switch" },
+  }
 }

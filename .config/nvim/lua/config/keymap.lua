@@ -1,7 +1,5 @@
 local system = require("config.system")
 
-vim.api.nvim_set_keymap('n', '<leader>n', '<cmd>Obsidian<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>ns', '<cmd>Obsidian search<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', 'g?', '<cmd>FzfLua keymaps<cr>', { noremap = true })
 
 local function open(it, fallback)
