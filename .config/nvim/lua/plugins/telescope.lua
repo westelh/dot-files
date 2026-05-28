@@ -5,4 +5,5 @@ return {
     "nvim-lua/plenary.nvim",
   },
   cmd = 'Telescope',
+  enabled = false,
 }

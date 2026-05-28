@@ -15,6 +15,10 @@ return {
     -- Will be removed in 4.0.0
     legacy_commands = false,
 
+    picker = {
+      name = 'fzf-lua'
+    },
+
     workspaces = {
       {
         name = "Obsidian Vault",
