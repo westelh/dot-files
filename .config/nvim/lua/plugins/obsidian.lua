@@ -17,14 +17,6 @@ return {
 
     workspaces = {
       {
-        name = "iCloud",
-        path = "/Users/taisei/Library/Mobile Documents/iCloud~md~obsidian/Documents/My Vault",
-      },
-      {
-        name = "Nanaren",
-        path = "/Users/taisei/Library/Mobile Documents/iCloud~md~obsidian/Documents/ななれん",
-      },
-      {
         name = "Obsidian Vault",
         path = vim.env.HOME .. '/Documents/My Vault'
       }
