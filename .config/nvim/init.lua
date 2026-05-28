@@ -16,4 +16,5 @@ vim.o.number = true
 vim.o.list = true
 vim.o.ambiwidth = 'single'
 vim.o.conceallevel = 1
+vim.o.clipboard = 'unnamed,unnamedplus'
 vim.cmd 'syntax enable'
