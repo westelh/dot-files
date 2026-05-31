@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 vim.lsp.enable({
-  'terraformls',
+  -- 'terraformls',
   'helm_ls',
   'gh_actions_ls',
   'yamlls',
