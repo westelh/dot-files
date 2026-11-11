@@ -65,12 +65,20 @@ configure_neovim () {
   fi
 }
 
+# Set default apps for file types (macOS only)
+configure_default_apps () {
+  echo $BOLD_GREEN "Configuring default apps" $RESET
+  brew install utiluti
+  xargs -L1 utiluti type set < $HOME/.config/default-apps
+}
+
 # Actual installation by calling the functions
 if [ "$system_type" = "Darwin" ]; then
   install_unix
   install_homebrew
   configure_fish
   configure_neovim
+  configure_default_apps
 fi
 
 if [ "$system_type" = "Linux" ]; then
