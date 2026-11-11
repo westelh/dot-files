@@ -20,6 +20,7 @@ if status is-login
   set -gx N_PREFIX "$XDG_DATA_HOME/n"
 
   # AWS CLI
+  set -gx AWS_PROFILE default
   set -gx AWS_CONFIG_HOME "$XDG_CONFIG_HOME/aws"
   set -gx AWS_CONFIG_FILE "$AWS_CONFIG_HOME/config"
 
@@ -31,5 +32,9 @@ if status is-login
   set -gx VAULT_ADDR https://vault.westelh.dev
 
   set -gx KUBECONFIG ~/.kube/merged.config
+
+  # OCI CLI
+  set -gx OCI_CLI_PROFILE DEFAULT
+  set -gx OCI_CLI_AUTH security_token
 end
 
