@@ -5,8 +5,10 @@
 [user]
 	name = げ
   email = westelh@gmail.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPFo03y8SED8pK6WW3Yr5fcC4qN5Cug/CQCkQtAwi/X8
 [commit]
 	verbose = true
+	gpgsign = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -14,3 +16,9 @@
 	required = true
 [include]
   path = .gitconfig.local
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[tag]
+	gpgsign = true
