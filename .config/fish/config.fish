@@ -6,7 +6,7 @@ if status is-interactive
     abbr --add top htop
     abbr --add tree eza --tree
     abbr --add zj zellij
-    abbr --add nv neovide
+    abbr --add nv nvim
 
     # Abbreviations ─ infra/devops
     abbr --add ku kubectl
