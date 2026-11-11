@@ -1,0 +1,12 @@
+public.plain-text   com.neovide.neovide
+public.source-code  com.neovide.neovide
+public.script       com.neovide.neovide
+public.shell-script com.neovide.neovide
+public.json         com.neovide.neovide
+public.yaml         com.neovide.neovide
+--ext tf            com.neovide.neovide
+--ext tfvars        com.neovide.neovide
+--ext hcl           com.neovide.neovide
+--ext toml          com.neovide.neovide
+--ext lua           com.neovide.neovide
+--ext md            com.neovide.neovide
