@@ -68,7 +68,6 @@ configure_neovim () {
 # Set default apps for file types (macOS only)
 configure_default_apps () {
   echo $BOLD_GREEN "Configuring default apps" $RESET
-  brew install utiluti
   xargs -L1 utiluti type set < $HOME/.config/default-apps
 }
 
