@@ -30,6 +30,6 @@ if status is-login
   # Vault CLI
   set -gx VAULT_ADDR https://vault.westelh.dev
 
-  set -gx KUBCONFIG ~/.kube/merged.config
+  set -gx KUBECONFIG ~/.kube/merged.config
 end
 
