@@ -19,8 +19,9 @@ function claude-issue --description 'Linear Issueのrepoラベルのリポジト
     set -l name $id
     test -n "$title"; and set name "$id "(string shorten --max 16 -- $title)
 
+    # 本体のワークツリーで進行中の作業を妨げないよう、Issueごとの git worktree で起動する
     pushd (ghq root)/$repo; or return
-    claude -n "$name" $rest "Linear の $id に取り組んでください。まず Linear MCP で Issue の内容とコメントを確認してから計画を立ててください。"
+    claude -n "$name" --worktree (string lower -- $id) $rest "Linear の $id に取り組んでください。まず Linear MCP で Issue の内容とコメントを確認してから計画を立ててください。"
     set -l st $status
     popd
     return $st
