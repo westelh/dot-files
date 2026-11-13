@@ -185,6 +185,7 @@ keybinds clear-defaults=true {
     }
     shared_among "normal" "locked" {
         bind "Alt n" { NewPane; }
+        bind "Alt c" { Run "claude" { stacked true; close_on_exit true; }; }
         bind "Alt f" { ToggleFloatingPanes; }
         bind "Alt i" { MoveTab "Left"; }
         bind "Alt o" { MoveTab "Right"; }
