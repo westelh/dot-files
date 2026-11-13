@@ -30,6 +30,9 @@ if status is-interactive
     # https://github.com/derailed/k9s/issues/2602
     abbr --add k9s LC_ALL=C.UTF-8 k9s
 
+    # Shorthand for repository picker
+    abbr --add repo --position anywhere '"$(ghq root)/$(ghq list | fzf)"'
+
     # Pyenv
     if type -q pyenv
       pyenv init - | source
