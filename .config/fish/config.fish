@@ -21,6 +21,7 @@ if status is-interactive
     abbr --add yc yadm commit
     abbr --add cdg cdgitroot
     abbr --add lcc claude-issue
+    abbr --add lio linear-open
 
     # Abbreviations ─ clipboard helpers
     abbr --add co pbcopy
